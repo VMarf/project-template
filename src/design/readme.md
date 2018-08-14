@@ -1,0 +1,1 @@
+Folder for .psd, .sketch or something else

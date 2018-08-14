@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+.idea
+*.sublime*
+*.log
+node_modules/
+bower_components/
+build/

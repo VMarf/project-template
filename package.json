@@ -1,0 +1,21 @@
+{
+  "name": "project-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Marfin Vladislav",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.1.1",
+    "browser-sync": "^2.24.6",
+    "gulp": "^3.9.1",
+    "gulp-favicons": "^2.2.7",
+    "gulp-fontgen": "^0.2.5",
+    "gulp-plumber": "^1.2.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-svg-sprite": "^1.4.0",
+    "gulp-svgo": "^1.5.4"
+  }
+}
