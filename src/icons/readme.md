@@ -1,1 +1,1 @@
-Folder for .png and .svg icons
+Folder for .svg icons
