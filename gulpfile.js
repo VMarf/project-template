@@ -35,23 +35,15 @@ gulp.task('style', function () {
 
 gulp.task('server', function () {
   browserSync.init({
-    server: './src/',
+    server: 'src/',
     notify: false
   });
 
-  gulp.watch('src/*.html').on('change', (e) => {
-    if (e.type !== 'deleted') {
-      browserSync.stream();
-    }
-  });
+  gulp.watch('src/*.html').on('change', browserSync.reload);
 
   gulp.watch('src/style/**/*.{scss,sass}', ['style']);
 
-  gulp.watch('src/js/**/*.js').on('change', (e) => {
-    if (e.type !== 'deleted') {
-      browserSync.stream();
-    }
-  });
+  gulp.watch('src/js/**/*.js').on('change', browserSync.reload);
 });
 
 gulp.task('gen-sprite', function () {
