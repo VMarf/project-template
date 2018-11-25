@@ -18,7 +18,7 @@ gulp.task('style', function () {
   return gulp.src('src/style/main.scss')
     .pipe(plumber())
     .pipe(sass())
-    .pipe(postcss(
+    .pipe(postcss([
       autoprefixer({
         browsers: [
           'last 1 version',
@@ -28,18 +28,18 @@ gulp.task('style', function () {
           'last 2 Edge versions'
         ]
       })
-    ))
+    ]))
     .pipe(gulp.dest('src/style/'))
     .pipe(browserSync.stream());
 });
 
 gulp.task('server', function () {
   browserSync.init({
-    server: './src/html/',
+    server: './src/',
     notify: false
   });
 
-  gulp.watch('src/html/*.html').on('change', (e) => {
+  gulp.watch('src/*.html').on('change', (e) => {
     if (e.type !== 'deleted') {
       browserSync.stream();
     }
@@ -103,12 +103,15 @@ gulp.task('gen-favicon', function () {
     .pipe(favicons({
       appName: '',
       appDescription: '',
-      background: "#fff",
-      path: '',
+      background: '#ffffff',
       url: '',
-      display: "standalone",
-      orientation: "portrait",
-      version: 1.0
+      display: 'standalone',
+      orientation: 'portrait',
+      version: 1.0,
+      logging: false,
+      html: 'favicon.html',
+      pipeHTML: true,
+      replace: true
     }))
     .pipe(gulp.dest('src/favicon/'));
 });
@@ -128,8 +131,8 @@ gulp.task('build-fonts', function () {
 });
 
 gulp.task('build-html', function () {
-  return gulp.src('src/html/*.html')
-    .pipe(gulp.dest('build/html/'));
+  return gulp.src('src/*.html')
+    .pipe(gulp.dest('build/'));
 });
 
 gulp.task('build-icons', function () {
